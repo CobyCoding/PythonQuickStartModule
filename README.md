@@ -5,3 +5,6 @@ This is currently in development. You can install it [here](https://github.com/C
 
 **Want to help out.**
     Check out our [guide](https://github.com/CobyCoding/PythonQuickStartModule/blob/master/github/contributing.md)
+
+**Docs**
+    https://github.com/CobyCoding/PythonQuickStartModule/blob/master/GitHub/html/Files/index.html
