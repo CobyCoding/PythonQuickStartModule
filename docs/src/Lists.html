@@ -4,9 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.9.1" />
-<title>File API documentation</title>
-<meta name="description" content="This file will store all the functions about
-managing files" />
+<title>src.Lists API documentation</title>
+<meta name="description" content="This file will store all the functions about managing Lists" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -20,77 +19,42 @@ managing files" />
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>File</code></h1>
+<h1 class="title">Module <code>src.Lists</code></h1>
 </header>
 <section id="section-intro">
-<p>This file will store all the functions about
-managing files</p>
+<p>This file will store all the functions about managing Lists</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">&#34;&#34;&#34; This file will store all the functions about
-managing files
+<pre><code class="python">&#34;&#34;&#34; This file will store all the functions about managing Lists
 &#34;&#34;&#34;
 
 import sys
-from PythonQuickStartModule.src import Strings
 
-
-def ReadFile(path, RemoveNewLine=True):
-    &#34;&#34;&#34;This will read a file
+def ListToStr(List):
+    &#34;&#34;&#34;This function will turn a list into a string
 
     Args:
-        path (str): The path of the file you want read.
-        RemoveNewLine (bool, optional): If you want to remove the \\n from the lines. Defaults to True.
+        List (List): The list you want converted into str
 
     Returns:
-        list: The lines of the file
-    &#34;&#34;&#34; 
-
-    try:
-        with open(path, &#34;r&#34;) as f:
-            try:
-                lines = f.readlines()
-            except:
-                sys.exit(&#34;The file can not be read.&#34;)
-
-    except FileNotFoundError:
-        sys.exit(&#34;The path {} does not exist.&#34;.format(path))
-    
-    if RemoveNewLine:
-        for line in lines:
-            lines[lines.index(line)] = Strings.RemoveNewLine(line)
-
-    else:
-        return lines
-    
-    return lines
-
-def ListToFile(List, path, AddNewLine = True):
-    &#34;&#34;&#34;This function will take a list and write each item into a file
-
-    Args:
-        List (list): The list you want written in.
-        path (str): The path of the file.
-        AddNewLine (bool, optional): If you want a new line between each item. Defaults to True.
+        str: The list as a string
     &#34;&#34;&#34;
 
-    for x in range(0, len(List)):
+    NewString = &#34;&#34;
+    for ListItem in List:
         try:
-            List[x] = str(List[x])
-        except:
-            sys.exit(&#34;Please make sure you passed in a list that only contains str and ints. If you are sure you did you can make a issue report on our github: https://github.com/CobyCoding/PythonQuickStartModule&#34;)
-    try:
-        with open(path, &#34;a+&#34;) as f:
+            NewString += ListItem
+        except TypeError:
             try:
-                for line in List:
-                    f.write(line + &#34;\n&#34; if AddNewLine else line)
+                ListItem = str(ListItem)
+                NewString += ListItem
             except:
-                sys.exit(&#34;Please make sure you passed in a list. If you are sure you did you can make a issue report on our github: https://github.com/CobyCoding/PythonQuickStartModule&#34;)
-
-    except FileNotFoundError:
-        sys.exit(&#34;The path {} does not exist&#34;.format(path))</code></pre>
+                sys.exit(&#34;The vairiable: {}. Is not a str and cannot be converted into str.&#34;
+                .format(NewString))
+    
+    return NewString</code></pre>
 </details>
 </section>
 <section>
@@ -100,100 +64,48 @@ def ListToFile(List, path, AddNewLine = True):
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="File.ListToFile"><code class="name flex">
-<span>def <span class="ident">ListToFile</span></span>(<span>List, path, AddNewLine=True)</span>
+<dt id="src.Lists.ListToStr"><code class="name flex">
+<span>def <span class="ident">ListToStr</span></span>(<span>List)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>This function will take a list and write each item into a file</p>
+<div class="desc"><p>This function will turn a list into a string</p>
 <h2 id="args">Args</h2>
 <dl>
-<dt><strong><code>List</code></strong> :&ensp;<code>list</code></dt>
-<dd>The list you want written in.</dd>
-<dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
-<dd>The path of the file.</dd>
-<dt><strong><code>AddNewLine</code></strong> :&ensp;<code>bool</code>, optional</dt>
-<dd>If you want a new line between each item. Defaults to True.</dd>
-</dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def ListToFile(List, path, AddNewLine = True):
-    &#34;&#34;&#34;This function will take a list and write each item into a file
-
-    Args:
-        List (list): The list you want written in.
-        path (str): The path of the file.
-        AddNewLine (bool, optional): If you want a new line between each item. Defaults to True.
-    &#34;&#34;&#34;
-
-    for x in range(0, len(List)):
-        try:
-            List[x] = str(List[x])
-        except:
-            sys.exit(&#34;Please make sure you passed in a list that only contains str and ints. If you are sure you did you can make a issue report on our github: https://github.com/CobyCoding/PythonQuickStartModule&#34;)
-    try:
-        with open(path, &#34;a+&#34;) as f:
-            try:
-                for line in List:
-                    f.write(line + &#34;\n&#34; if AddNewLine else line)
-            except:
-                sys.exit(&#34;Please make sure you passed in a list. If you are sure you did you can make a issue report on our github: https://github.com/CobyCoding/PythonQuickStartModule&#34;)
-
-    except FileNotFoundError:
-        sys.exit(&#34;The path {} does not exist&#34;.format(path))</code></pre>
-</details>
-</dd>
-<dt id="File.ReadFile"><code class="name flex">
-<span>def <span class="ident">ReadFile</span></span>(<span>path, RemoveNewLine=True)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>This will read a file</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
-<dd>The path of the file you want read.</dd>
-<dt><strong><code>RemoveNewLine</code></strong> :&ensp;<code>bool</code>, optional</dt>
-<dd>If you want to remove the \n from the lines. Defaults to True.</dd>
+<dt><strong><code>List</code></strong> :&ensp;<code>List</code></dt>
+<dd>The list you want converted into str</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
-<dt><code>list</code></dt>
-<dd>The lines of the file</dd>
+<dt><code>str</code></dt>
+<dd>The list as a string</dd>
 </dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def ReadFile(path, RemoveNewLine=True):
-    &#34;&#34;&#34;This will read a file
+<pre><code class="python">def ListToStr(List):
+    &#34;&#34;&#34;This function will turn a list into a string
 
     Args:
-        path (str): The path of the file you want read.
-        RemoveNewLine (bool, optional): If you want to remove the \\n from the lines. Defaults to True.
+        List (List): The list you want converted into str
 
     Returns:
-        list: The lines of the file
-    &#34;&#34;&#34; 
+        str: The list as a string
+    &#34;&#34;&#34;
 
-    try:
-        with open(path, &#34;r&#34;) as f:
+    NewString = &#34;&#34;
+    for ListItem in List:
+        try:
+            NewString += ListItem
+        except TypeError:
             try:
-                lines = f.readlines()
+                ListItem = str(ListItem)
+                NewString += ListItem
             except:
-                sys.exit(&#34;The file can not be read.&#34;)
-
-    except FileNotFoundError:
-        sys.exit(&#34;The path {} does not exist.&#34;.format(path))
+                sys.exit(&#34;The vairiable: {}. Is not a str and cannot be converted into str.&#34;
+                .format(NewString))
     
-    if RemoveNewLine:
-        for line in lines:
-            lines[lines.index(line)] = Strings.RemoveNewLine(line)
-
-    else:
-        return lines
-    
-    return lines</code></pre>
+    return NewString</code></pre>
 </details>
 </dd>
 </dl>
@@ -207,10 +119,14 @@ def ListToFile(List, path, AddNewLine = True):
 <ul></ul>
 </div>
 <ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="src" href="index.html">src</a></code></li>
+</ul>
+</li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="File.ListToFile" href="#File.ListToFile">ListToFile</a></code></li>
-<li><code><a title="File.ReadFile" href="#File.ReadFile">ReadFile</a></code></li>
+<li><code><a title="src.Lists.ListToStr" href="#src.Lists.ListToStr">ListToStr</a></code></li>
 </ul>
 </li>
 </ul>
