@@ -1,5 +1,9 @@
 """ This file will store all the functions about
 managing files
+
+It can be imported via:
+
+from PythonQuickStartModule.src import Files
 """
 
 import sys

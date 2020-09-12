@@ -1,4 +1,8 @@
 """ This file will store all the functions about managing Lists
+
+It can be imported via:
+
+from PythonQuickStartModule.src import Lists
 """
 
 import sys
