@@ -16,9 +16,9 @@ def ReadFile(path, RemoveNewLine=True):
     Returns:
         list: The lines of the file
     """ 
-    
+
     try:
-        with open(path) as f:
+        with open(path, "r") as f:
             try:
                 lines = f.readlines()
             except:
@@ -35,3 +35,20 @@ def ReadFile(path, RemoveNewLine=True):
         return lines
     
     return lines
+
+def ListToFile(List, path, AddNewLine = True):
+    for x in range(0, len(List)):
+        try:
+            List[x] = str(List[x])
+        except:
+            sys.exit("Please make sure you passed in a list that only contains str and ints. If you are sure you did you can make a issue report on our github: https://github.com/CobyCoding/PythonQuickStartModule")
+    try:
+        with open(path, "a+") as f:
+            try:
+                for line in List:
+                    f.write(line + "\n" if AddNewLine else line)
+            except:
+                sys.exit("Please make sure you passed in a list. If you are sure you did you can make a issue report on our github: https://github.com/CobyCoding/PythonQuickStartModule")
+
+    except FileNotFoundError:
+        sys.exit("The path {} does not exist".format(path))
