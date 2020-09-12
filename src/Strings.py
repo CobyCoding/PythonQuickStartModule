@@ -1,4 +1,4 @@
-""" This file will tore all the functions about managing strings
+""" This file will store all the functions about managing strings
 """
 
 import sys
