@@ -1,4 +1,8 @@
 """ This file will store all the functions about managing strings
+
+It can be imported via:
+
+from PythonQuickStartModule.src import Strings
 """
 
 import sys
