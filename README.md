@@ -7,4 +7,4 @@ This is currently in development. You can install it [here](https://github.com/C
     Check out our [guide](https://github.com/CobyCoding/PythonQuickStartModule/blob/master/GitHub/contributing.md)
 
 **Docs**
-    https://github.com/CobyCoding/PythonQuickStartModule/blob/master/GitHub/html/Files/index.html
+    https://cobycoding.github.io/PythonQuickStartModule/index.html
