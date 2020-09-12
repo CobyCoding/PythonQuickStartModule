@@ -1,4 +1,8 @@
+""" This file will store all the functions about managing Lists
+"""
+
 import sys
+
 def ListToStr(List):
     """This function will turn a list into a string
 

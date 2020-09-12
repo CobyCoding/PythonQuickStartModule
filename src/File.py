@@ -1,7 +1,7 @@
 """ This file will store all the functions about
 managing files
-
 """
+
 import sys
 from PythonQuickStartModule.src import Strings
 
@@ -11,7 +11,7 @@ def ReadFile(path, RemoveNewLine=True):
 
     Args:
         path (str): The path of the file you want read.
-        RemoveNewLine (bool, optional): If you want to remove the \n from the lines. Defaults to True.
+        RemoveNewLine (bool, optional): If you want to remove the \\n from the lines. Defaults to True.
 
     Returns:
         list: The lines of the file
@@ -37,6 +37,14 @@ def ReadFile(path, RemoveNewLine=True):
     return lines
 
 def ListToFile(List, path, AddNewLine = True):
+    """This function will take a list and write each item into a file
+
+    Args:
+        List (list): The list you want written in.
+        path (str): The path of the file.
+        AddNewLine (bool, optional): If you want a new line between each item. Defaults to True.
+    """
+
     for x in range(0, len(List)):
         try:
             List[x] = str(List[x])
