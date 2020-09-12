@@ -37,6 +37,13 @@ def ReadFile(path, RemoveNewLine=True):
     return lines
 
 def ListToFile(List, path, AddNewLine = True):
+    """This will write the content of a list into a file
+
+    Args:
+        List (list): The list you want written into the file
+        path (str): The path of the file you want to write in
+        AddNewLine (bool, optional): If you want a \n at the end of each item in the list. Defaults to True.
+    """
     for x in range(0, len(List)):
         try:
             List[x] = str(List[x])
