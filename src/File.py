@@ -7,6 +7,16 @@ from PythonQuickStartModule.src import Strings
 
 
 def ReadFile(path, RemoveNewLine=True):
+    """This will read a file
+
+    Args:
+        path (str): The path of the file you want read.
+        RemoveNewLine (bool, optional): If you want to remove the \n from the lines. Defaults to True.
+
+    Returns:
+        list: The lines of the file
+    """ 
+    
     try:
         with open(path) as f:
             try:
