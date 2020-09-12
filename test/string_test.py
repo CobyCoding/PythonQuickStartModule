@@ -1,6 +1,6 @@
 import unittest
-import sys
-sys.path[0] = "C:\\Users\\cobyl\\Documents\\Coding\\MicrosoftCode\\ActualDevelopment"
+import os, sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname("PythonQuickStartModule"), '..')))
 
 class Error(Exception):
     def __init__(self, ErrorMessage):
@@ -9,7 +9,7 @@ class Error(Exception):
 class TestStringFunctions(unittest.TestCase):
     def test_readfile(self):
         from PythonQuickStartModule.src import Strings
-        newline = Strings.RemoveNewLine("\nhi\n")
+        Strings.RemoveNewLine("\nhi\n")
         
 
 if __name__ == '__main__':
