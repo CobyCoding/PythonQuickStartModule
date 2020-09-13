@@ -2,6 +2,7 @@ import sys
 
 try:
     import telepot
+
 except:
     sys.exit("Please run: pip install telepot")
 
@@ -28,7 +29,7 @@ class TelegramBot():
 
         Args:
             msg (str): The message you want sent
-            chat_id (str): The chat id of the user you want the message sent to
+            chat_id (str): The chat id of user you want the message sent to
         """
 
         self.bot.sendMessage(chat_id, msg)
@@ -51,3 +52,29 @@ class TelegramBot():
         """
         self.bot.sendAudio(chat_id, path)
 
+
+def send_email(yourEmailAddress, YourPassword, EmailAdressToSendTo, subject, msg):
+    """This function will send a email
+
+    Args:
+        yourEmailAddress (str): Your email
+        YourPassword (str): Your email password
+        EmailAdressToSendTo (str): The email to send to
+        subject (str): The subject of the email
+        msg (str): The message
+    """
+    failCount = 0
+    try:
+        server = smtplib.SMTP('smtp.gmail.com:587')
+        server.ehlo()
+        server.starttls()
+        server.login(emailAddress, password)
+        message = ('Subject: {}\n\n{}'.format(subject, msg))
+
+        server.sendmail(EmailAdressToSendTo, EmailAdressToSendTo, message)
+        server.quit()
+    except:
+        if failCount == 3:
+            print("ERROR Failed to send email.")
+        else:
+            failCount += 1
