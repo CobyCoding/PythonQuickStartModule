@@ -1,5 +1,13 @@
+""" This file will store all the functions about managing strings
+
+It can be imported via:
+
+from PythonQuickStartModule.src import Strings
+"""
+
 import sys
 from PythonQuickStartModule.src import Lists
+
 
 def RemoveNewLine(string):
     """This function will remove the \n from a string

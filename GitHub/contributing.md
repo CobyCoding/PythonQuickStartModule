@@ -1,10 +1,10 @@
 **Found A Bug**
 
-    First, **make sure that** no one else has reported the same issue as you.You can do this via searching on the issue page.
+    First, make sure that no one else has reported the same issue as you.You can do this via searching on the issue page.
 
-    If **no one** has then create a issue report, then you can go ahead and make a issue on the issue page. 
+    If no one has then create a issue report, then you can go ahead and make a issue on the issue page. 
     
-    **Make sure** to follow the template given.
+    Make sure to follow the template given.
 
 **Want to fix a bug**
 
