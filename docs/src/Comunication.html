@@ -30,6 +30,7 @@
 
 try:
     import telepot
+
 except:
     sys.exit(&#34;Please run: pip install telepot&#34;)
 
@@ -56,7 +57,7 @@ class TelegramBot():
 
         Args:
             msg (str): The message you want sent
-            chat_id (str): The chat id of the user you want the message sent to
+            chat_id (str): The chat id of user you want the message sent to
         &#34;&#34;&#34;
 
         self.bot.sendMessage(chat_id, msg)
@@ -77,7 +78,34 @@ class TelegramBot():
             path (str): The path of the audio
             chat_id (str): The chat id of the user you want the audio sent to
         &#34;&#34;&#34;
-        self.bot.sendAudio(chat_id, path)</code></pre>
+        self.bot.sendAudio(chat_id, path)
+
+
+def send_email(yourEmailAddress, YourPassword, EmailAdressToSendTo, subject, msg):
+    &#34;&#34;&#34;This function will send a email
+
+    Args:
+        yourEmailAddress (str): Your email
+        YourPassword (str): Your email password
+        EmailAdressToSendTo (str): The email to send to
+        subject (str): The subject of the email
+        msg (str): The message
+    &#34;&#34;&#34;
+    failCount = 0
+    try:
+        server = smtplib.SMTP(&#39;smtp.gmail.com:587&#39;)
+        server.ehlo()
+        server.starttls()
+        server.login(emailAddress, password)
+        message = (&#39;Subject: {}\n\n{}&#39;.format(subject, msg))
+
+        server.sendmail(EmailAdressToSendTo, EmailAdressToSendTo, message)
+        server.quit()
+    except:
+        if failCount == 3:
+            print(&#34;ERROR Failed to send email.&#34;)
+        else:
+            failCount += 1</code></pre>
 </details>
 </section>
 <section>
@@ -85,6 +113,58 @@ class TelegramBot():
 <section>
 </section>
 <section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="src.Comunication.send_email"><code class="name flex">
+<span>def <span class="ident">send_email</span></span>(<span>yourEmailAddress, YourPassword, EmailAdressToSendTo, subject, msg)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function will send a email</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>yourEmailAddress</code></strong> :&ensp;<code>str</code></dt>
+<dd>Your email</dd>
+<dt><strong><code>YourPassword</code></strong> :&ensp;<code>str</code></dt>
+<dd>Your email password</dd>
+<dt><strong><code>EmailAdressToSendTo</code></strong> :&ensp;<code>str</code></dt>
+<dd>The email to send to</dd>
+<dt><strong><code>subject</code></strong> :&ensp;<code>str</code></dt>
+<dd>The subject of the email</dd>
+<dt><strong><code>msg</code></strong> :&ensp;<code>str</code></dt>
+<dd>The message</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def send_email(yourEmailAddress, YourPassword, EmailAdressToSendTo, subject, msg):
+    &#34;&#34;&#34;This function will send a email
+
+    Args:
+        yourEmailAddress (str): Your email
+        YourPassword (str): Your email password
+        EmailAdressToSendTo (str): The email to send to
+        subject (str): The subject of the email
+        msg (str): The message
+    &#34;&#34;&#34;
+    failCount = 0
+    try:
+        server = smtplib.SMTP(&#39;smtp.gmail.com:587&#39;)
+        server.ehlo()
+        server.starttls()
+        server.login(emailAddress, password)
+        message = (&#39;Subject: {}\n\n{}&#39;.format(subject, msg))
+
+        server.sendmail(EmailAdressToSendTo, EmailAdressToSendTo, message)
+        server.quit()
+    except:
+        if failCount == 3:
+            print(&#34;ERROR Failed to send email.&#34;)
+        else:
+            failCount += 1</code></pre>
+</details>
+</dd>
+</dl>
 </section>
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
@@ -122,7 +202,7 @@ class TelegramBot():
 
         Args:
             msg (str): The message you want sent
-            chat_id (str): The chat id of the user you want the message sent to
+            chat_id (str): The chat id of user you want the message sent to
         &#34;&#34;&#34;
 
         self.bot.sendMessage(chat_id, msg)
@@ -208,7 +288,7 @@ class TelegramBot():
 <dt><strong><code>msg</code></strong> :&ensp;<code>str</code></dt>
 <dd>The message you want sent</dd>
 <dt><strong><code>chat_id</code></strong> :&ensp;<code>str</code></dt>
-<dd>The chat id of the user you want the message sent to</dd>
+<dd>The chat id of user you want the message sent to</dd>
 </dl></div>
 <details class="source">
 <summary>
@@ -219,7 +299,7 @@ class TelegramBot():
 
     Args:
         msg (str): The message you want sent
-        chat_id (str): The chat id of the user you want the message sent to
+        chat_id (str): The chat id of user you want the message sent to
     &#34;&#34;&#34;
 
     self.bot.sendMessage(chat_id, msg)</code></pre>
@@ -265,6 +345,11 @@ class TelegramBot():
 <li><h3>Super-module</h3>
 <ul>
 <li><code><a title="src" href="index.html">src</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="src.Comunication.send_email" href="#src.Comunication.send_email">send_email</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
