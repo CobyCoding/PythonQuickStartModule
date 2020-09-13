@@ -41,6 +41,7 @@ def ReadFile(path, RemoveNewLine=True):
     return lines
 
 def ListToFile(List, path, AddNewLine = True):
+
     """This function will take a list and write each item into a file
 
     Args:
