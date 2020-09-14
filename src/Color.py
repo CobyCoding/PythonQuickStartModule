@@ -1,4 +1,4 @@
-# A simple coloring, formating file
+""" A simple coloring, formating file """
 
 class Styling():
     def __init__(self):

@@ -1,3 +1,5 @@
+"""This file will store all the functions about managing communication"""
+
 import sys
 
 try:
