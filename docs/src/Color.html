@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.9.1" />
-<title>src API documentation</title>
+<title>src.Color API documentation</title>
 <meta name="description" content="" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,41 +19,207 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Namespace <code>src</code></h1>
+<h1 class="title">Module <code>src.Color</code></h1>
 </header>
 <section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># A simple coloring, formating file
+
+class Styling():
+    def __init__(self):
+        self.colors = {
+        &#34;BLACK&#34; : &#34;\033[0;30m&#34;,
+        &#34;RED&#34; : &#34;\033[0;31m&#34;,
+        &#34;GREEN&#34; : &#34;\033[0;32m&#34;,
+        &#34;BROWN&#34; : &#34;\033[0;33m&#34;,
+        &#34;BLUE&#34; : &#34;\033[0;34m&#34;,
+        &#34;PURPLE&#34; : &#34;\033[0;35m&#34;,
+        &#34;CYAN&#34; : &#34;\033[0;36m&#34;,
+        &#34;LIGHT_GRAY&#34; : &#34;\033[0;37m&#34;,
+        &#34;DARK_GRAY&#34; : &#34;\033[1;30m&#34;,
+        &#34;LIGHT_RED&#34; : &#34;\033[1;31m&#34;,
+        &#34;LIGHT_GREEN&#34; : &#34;\033[1;32m&#34;,
+        &#34;YELLOW&#34; : &#34;\033[1;33m&#34;,
+        &#34;LIGHT_BLUE&#34; : &#34;\033[1;34m&#34;,
+        &#34;LIGHT_PURPLE&#34; : &#34;\033[1;35m&#34;,
+        &#34;LIGHT_CYAN&#34; : &#34;\033[1;36m&#34;,
+        &#34;LIGHT_WHITE&#34; : &#34;\033[1;37m&#34;
+        }
+
+    def GetStyle(self, color):
+
+        if color:
+            return self.colors[color.upper()]
+
+
+def GetColor(color=None):
+    &#34;&#34;&#34;Get a color code.
+
+    Args:
+        color (str, optional): The color you want to be returned. Defaults to None.
+
+    Returns:
+        str: Color Codes
+
+    Colors:
+        black
+        red
+        green
+        brown
+        blue
+        purple
+        cyan
+        light_gray
+        dark_gray
+        light_red
+        light_green
+        yellow
+        light_blue
+        light_purple
+        light_cyan
+        light_white
+    &#34;&#34;&#34; 
+    StyleClass = Styling()
+    return StyleClass.GetStyle(color)</code></pre>
+</details>
 </section>
 <section>
-<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt><code class="name"><a title="src.Color" href="Color.html">src.Color</a></code></dt>
+<dt id="src.Color.GetColor"><code class="name flex">
+<span>def <span class="ident">GetColor</span></span>(<span>color=None)</span>
+</code></dt>
 <dd>
-<div class="desc"></div>
-</dd>
-<dt><code class="name"><a title="src.Comunication" href="Comunication.html">src.Comunication</a></code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt><code class="name"><a title="src.File" href="File.html">src.File</a></code></dt>
-<dd>
-<div class="desc"><p>This file will store all the functions about
-managing files …</p></div>
-</dd>
-<dt><code class="name"><a title="src.Lists" href="Lists.html">src.Lists</a></code></dt>
-<dd>
-<div class="desc"><p>This file will store all the functions about managing Lists …</p></div>
-</dd>
-<dt><code class="name"><a title="src.Strings" href="Strings.html">src.Strings</a></code></dt>
-<dd>
-<div class="desc"><p>This file will store all the functions about managing strings …</p></div>
+<div class="desc"><p>Get a color code.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>color</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>The color you want to be returned. Defaults to None.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>Color Codes</dd>
+</dl>
+<h2 id="colors">Colors</h2>
+<p>black
+red
+green
+brown
+blue
+purple
+cyan
+light_gray
+dark_gray
+light_red
+light_green
+yellow
+light_blue
+light_purple
+light_cyan
+light_white</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def GetColor(color=None):
+    &#34;&#34;&#34;Get a color code.
+
+    Args:
+        color (str, optional): The color you want to be returned. Defaults to None.
+
+    Returns:
+        str: Color Codes
+
+    Colors:
+        black
+        red
+        green
+        brown
+        blue
+        purple
+        cyan
+        light_gray
+        dark_gray
+        light_red
+        light_green
+        yellow
+        light_blue
+        light_purple
+        light_cyan
+        light_white
+    &#34;&#34;&#34; 
+    StyleClass = Styling()
+    return StyleClass.GetStyle(color)</code></pre>
+</details>
 </dd>
 </dl>
 </section>
 <section>
-</section>
-<section>
-</section>
-<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="src.Color.Styling"><code class="flex name class">
+<span>class <span class="ident">Styling</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Styling():
+    def __init__(self):
+        self.colors = {
+        &#34;BLACK&#34; : &#34;\033[0;30m&#34;,
+        &#34;RED&#34; : &#34;\033[0;31m&#34;,
+        &#34;GREEN&#34; : &#34;\033[0;32m&#34;,
+        &#34;BROWN&#34; : &#34;\033[0;33m&#34;,
+        &#34;BLUE&#34; : &#34;\033[0;34m&#34;,
+        &#34;PURPLE&#34; : &#34;\033[0;35m&#34;,
+        &#34;CYAN&#34; : &#34;\033[0;36m&#34;,
+        &#34;LIGHT_GRAY&#34; : &#34;\033[0;37m&#34;,
+        &#34;DARK_GRAY&#34; : &#34;\033[1;30m&#34;,
+        &#34;LIGHT_RED&#34; : &#34;\033[1;31m&#34;,
+        &#34;LIGHT_GREEN&#34; : &#34;\033[1;32m&#34;,
+        &#34;YELLOW&#34; : &#34;\033[1;33m&#34;,
+        &#34;LIGHT_BLUE&#34; : &#34;\033[1;34m&#34;,
+        &#34;LIGHT_PURPLE&#34; : &#34;\033[1;35m&#34;,
+        &#34;LIGHT_CYAN&#34; : &#34;\033[1;36m&#34;,
+        &#34;LIGHT_WHITE&#34; : &#34;\033[1;37m&#34;
+        }
+
+    def GetStyle(self, color):
+
+        if color:
+            return self.colors[color.upper()]</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="src.Color.Styling.GetStyle"><code class="name flex">
+<span>def <span class="ident">GetStyle</span></span>(<span>self, color)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def GetStyle(self, color):
+
+    if color:
+        return self.colors[color.upper()]</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
 </section>
 </article>
 <nav id="sidebar">
@@ -62,13 +228,24 @@ managing files …</p></div>
 <ul></ul>
 </div>
 <ul id="index">
-<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<li><h3>Super-module</h3>
 <ul>
-<li><code><a title="src.Color" href="Color.html">src.Color</a></code></li>
-<li><code><a title="src.Comunication" href="Comunication.html">src.Comunication</a></code></li>
-<li><code><a title="src.File" href="File.html">src.File</a></code></li>
-<li><code><a title="src.Lists" href="Lists.html">src.Lists</a></code></li>
-<li><code><a title="src.Strings" href="Strings.html">src.Strings</a></code></li>
+<li><code><a title="src" href="index.html">src</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="src.Color.GetColor" href="#src.Color.GetColor">GetColor</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="src.Color.Styling" href="#src.Color.Styling">Styling</a></code></h4>
+<ul class="">
+<li><code><a title="src.Color.Styling.GetStyle" href="#src.Color.Styling.GetStyle">GetStyle</a></code></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
