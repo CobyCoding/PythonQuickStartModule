@@ -38,20 +38,35 @@ def GetColor(color=None):
 
     Colors:
         black
+
         red
+
         green
+
         brown
+
         blue
+
         purple
+
         cyan
+
         light_gray
+
         dark_gray
+
         light_red
+
         light_green
+
         yellow
+
         light_blue
+
         light_purple
+
         light_cyan
+        
         light_white
     """ 
     StyleClass = Styling()
