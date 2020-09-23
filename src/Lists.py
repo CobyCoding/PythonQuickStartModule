@@ -7,7 +7,7 @@ from PythonQuickStartModule.src import Lists
 
 import sys
 
-def ListToStr(List):
+def ListToStr(List, split=None):
     """This function will turn a list into a string
 
     Args:
@@ -20,7 +20,13 @@ def ListToStr(List):
     NewString = ""
     for ListItem in List:
         try:
-            NewString += ListItem
+            if split:
+                if not List[-1] == ListItem:
+                    NewString += ListItem + split
+                else:
+                    NewString += ListItem
+            else:
+                NewString += ListItem
         except TypeError:
             try:
                 ListItem = str(ListItem)
